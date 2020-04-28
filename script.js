@@ -105,7 +105,9 @@ function nextQuestion() {
 }
 
 function endGame(){                    
-    score = seconds;
+    scoreAreaEl.setAttribute("class", "")
+    var scoreText = "Your score is " + seconds;
+    scoreH2.innerText = scoreText;
     timerEl.textContent = "";
     seconds = "";
     console.log(score);
@@ -113,18 +115,17 @@ function endGame(){
     timerEl.setAttribute("class", "hide");
     container.setAttribute("class", "hide");
    
-    // This is what I am working on now
-    scoreAreaEl.setAttribute("class", "")
-    scoreH2.innerText("Your score is " + score)
+
     
 }
 
+// Checks if the answer clicked is correct.
 function answerCheck(event) {
  console.log("answerCheck() test")
     console.log(event.target.innerHTML);
         
     if (event.target.innerHTML === questionObjects[questionIndex].correctAnswer) {
-        console.log("good");
+        // console.log("Correct");
         dingAudio.play();
         questionIndex++;
         score++;

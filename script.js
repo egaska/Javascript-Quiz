@@ -143,6 +143,7 @@ function enterYourScore(event){
         console.log(newScore);
         highScoreStorage.push(newScore);
         console.log(highScoreStorage);
+        localStorage.setItem("highScoreStorage", JSON.stringify(highScoreStorage));
         
 }
 

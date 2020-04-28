@@ -45,6 +45,14 @@ document.body.children[1].children[2].children[0].children[0].appendChild(enterI
 var timerEl = document.getElementById("timer");
 var seconds = 120;
 
+//Array for High Scores
+var highScoreStorage
+    if (localStorage.highScoreStorage === undefined){
+       highScoreStorage = []; 
+    }else {
+        highScoreStorage = JSON.parse(window.localStorage.highScoreStorage);
+    }
+
 // Question Objects
 
 var questionObjects = [
@@ -133,6 +141,9 @@ function enterYourScore(event){
         
         var newScore = userInput + " : " + score + " seconds";
         console.log(newScore);
+        highScoreStorage.push(newScore);
+        console.log(highScoreStorage);
+        
 }
 
 // Checks if the answer clicked is correct.

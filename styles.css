@@ -28,5 +28,9 @@ h1 {
 .button{
     background-color: white;
     margin: 10px;
+    
 
+}
+.hide{
+    display : none;
 }

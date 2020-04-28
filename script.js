@@ -2,22 +2,29 @@
 var startButton = document.getElementById("startButton");
 var answerButtons = document.getElementById("answers");
 var controls = document.getElementById("controls");
+var questionIndex = 0;
+var dingAudio = new Audio('correctNoise.mp3');
+var wrongNoise = new Audio('wrongNoise.mp3')
+var containerEl = document.getElementById("container");
+var scoreAreaEl = document.getElementById("scoreArea");
+
 
 //Question/Answer Buttons
 var questions = document.createElement("div");
 questions.setAttribute("class", "question");
-var Answer1 = document.createElement("button");
-Answer1.setAttribute("class", "button");
-Answer1.setAttribute("id", "answer1");
-var Answer2 = document.createElement("button");
-Answer2.setAttribute("class", "button");
-Answer2.setAttribute("id", "answer2");
-var Answer3 = document.createElement("button");
-Answer3.setAttribute("class", "button");
-Answer3.setAttribute("id", "answer3");
-var Answer4 = document.createElement("button");
-Answer4.setAttribute("class", "button");
-Answer4.setAttribute("id", "answer4");
+var answer1Button = document.createElement("button");
+answer1Button.setAttribute("class", "button");
+answer1Button.setAttribute("id", "answer1");
+var answer2Button = document.createElement("button");
+answer2Button.setAttribute("class", "button");
+answer2Button.setAttribute("id", "answer2");
+var answer3Button = document.createElement("button");
+answer3Button.setAttribute("class", "button");
+answer3Button.setAttribute("id", "answer3");
+var answer4Button = document.createElement("button");
+answer4Button.setAttribute("class", "button");
+answer4Button.setAttribute("id", "answer4");
+var correctAnswerStorage = "";
 
 
 var timerEl = document.getElementById("timer");
@@ -42,10 +49,12 @@ var questionObjects = [
         answer2: "Anson Jones",
         answer3: "Stephen F. Austin",
         answer4: "Mirabeau B. Lamar",
-        correctAnswer: "answer2"
+        correctAnswer: "Anson Jones"
     },
 ]
 
+
+// Functions
 
 startButton.addEventListener("click", function () {
     controls.innerHTML = "";
@@ -54,6 +63,7 @@ startButton.addEventListener("click", function () {
 })
 
 function startTimer() {
+    seconds = 120;
     timerEl.textContent = "Timer : " + seconds;
     var timerInterval = setInterval(function () {
         seconds--;
@@ -65,40 +75,69 @@ function startTimer() {
 }
 
 
-
-
 function getQuestion() {
 
-    questions.textContent = questionObjects[0].question;
-    Answer1.textContent = questionObjects[0].answer1;
-    Answer2.textContent = questionObjects[0].answer2;
-    Answer3.textContent = questionObjects[0].answer3;
-    Answer4.textContent = questionObjects[0].answer4;
+    questions.textContent = questionObjects[questionIndex].question;
+    answer1Button.textContent = questionObjects[questionIndex].answer1;
+    answer2Button.textContent = questionObjects[questionIndex].answer2;
+    answer3Button.textContent = questionObjects[questionIndex].answer3;
+    answer4Button.textContent = questionObjects[questionIndex].answer4;
+    correctAnswerStorage = questionObjects[questionIndex].correctAnswer;
 
     //Appending HTML to dislay question
     document.body.children[1].children[1].children[0].appendChild(questions);
-    document.body.children[1].children[1].children[1].appendChild(Answer1);
-    document.body.children[1].children[1].children[1].appendChild(Answer2);
-    document.body.children[1].children[1].children[1].appendChild(Answer3);
-    document.body.children[1].children[1].children[1].appendChild(Answer4);
-
-    answer3.addEventListener("click", answerCheck(questionObjects[0].answer3));
-
-
+    document.body.children[1].children[1].children[1].appendChild(answer1Button);
+    document.body.children[1].children[1].children[1].appendChild(answer2Button);
+    document.body.children[1].children[1].children[1].appendChild(answer3Button);
+    document.body.children[1].children[1].children[1].appendChild(answer4Button);
 }
 
-function answerCheck( answer ){
+function nextQuestion() {
+    if (questionIndex < questionObjects.length) {
+        console.log("nextQuestion Function Accessed")
+        getQuestion();
+    }
+    else{
+        endGame();
+    }
+}
 
-    console.log (answer);
-if ( answer === questionObjects[0].correctAnswer){
-    console.log("good");
-}
-else{
-    console.log("bad");
-}
+function endGame(){                    
+    console.log("End Game Test");
+    container.setAttribute("class", "hide");
     
-{
+    scoreAreaEl.setAttribute("class", "test")
+    
+    
+    
 
 }
- 
+
+function answerCheck(event) {
+ console.log("answerCheck() test")
+    console.log(event.target.innerHTML);
+        
+    if (event.target.innerHTML === questionObjects[questionIndex].correctAnswer) {
+        console.log("good");
+        dingAudio.play();
+        questionIndex++;
+        nextQuestion();
+    }
+    else {
+        // console.log("bad");
+        console.log(questionObjects[questionIndex].correctAnswer);
+        seconds = seconds - 10;
+        wrongNoise.play();
+        questionIndex++;
+        nextQuestion();
+    }
 }
+function displayScore(){
+    
+
+}
+
+answer1Button.addEventListener("click", answerCheck);
+answer2Button.addEventListener("click", answerCheck);
+answer3Button.addEventListener("click", answerCheck);
+answer4Button.addEventListener("click", answerCheck);

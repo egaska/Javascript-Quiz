@@ -26,12 +26,16 @@
             <h1>Javascript Quiz</h1>
             
           </header>
-          <section id="container" class="hide ">
+          <section id="container" >
             <div id="question"></div>
             <div id="answers" class="buttonArea"></div>
           </section>
           <section class="scores">
-            <div id="scoreArea" class="hide"> </div>
+            <div id="scoreArea" class="hide">
+                <form> <div class="form-group">
+                    <label>Please enter your initials:</label>
+                    <input class="form-control" id="initialForm" placeholder="initials">
+                  </div></form></div>
           </section>
           <section class="controls" id= "controls">
             <button class = "" id="startButton">START</button>
@@ -39,6 +43,11 @@
             </div>
           </section>
         </main>
+        
+        <audio id="dingAudio"></audio>
+            <source src="assets/Ding-sound-effect.mp3" type="audio/mpeg">
+          </audio>
+          
     <script src="./script.js"></script>
 </body>
 

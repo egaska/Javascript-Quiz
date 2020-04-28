@@ -125,6 +125,15 @@ function endGame() {
     container.setAttribute("class", "hide");
 }
 
+function enterYourScore(event){
+        event.preventDefault();
+        // console.log(score);
+        var newInput = initialFormEl;
+        var userInput = newInput.value.trim();
+        
+        var newScore = userInput + " : " + score + " seconds";
+        console.log(newScore);
+}
 
 // Checks if the answer clicked is correct.
 function answerCheck(event) {
@@ -153,14 +162,6 @@ answer2Button.addEventListener("click", answerCheck);
 answer3Button.addEventListener("click", answerCheck);
 answer4Button.addEventListener("click", answerCheck);
 // Event listener to submit Initials
-enterInitialsButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    // console.log(score);
-    var newInput = initialFormEl;
-    var userInput = newInput.value.trim();
-    
-    var newScore = userInput + " : " + score + " seconds";
-    console.log(newScore);
-})
+enterInitialsButton.addEventListener("click", enterYourScore)
 
 

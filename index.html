@@ -13,26 +13,29 @@
 <body>
 
     <body>
+
+     
+        <div class = "row justify-content-around">
+            <div class="alert alert-light col-2" role="alert" id="timer">Timer : </div>
+            <button class="button btn btn-light col-2" id="showScoresButton" >See High Scores</button>
+            
+        </div>
+        
         <main class="quizArea">
           <header class="header">
             <h1>Javascript Quiz</h1>
-            <span id="timer"></span>
+            
           </header>
           <section id="container" class="hide">
             <div id="question"></div>
             <div id="answers" class="buttonArea"></div>
           </section>
           <section class="scores">
-            <div id="scoreArea" class="hide"></div>
+            <div id="scoreArea" class="hide"> </div>
           </section>
-          <section class="controls">
+          <section class="controls" id= "controls">
             <button class = "" id="startButton">START</button>
-            <button class="button" id="showScoresButton">See High Scores</button>
-            <br />
-            <div id="scoreArea" class="hide">
-              <span id="scoreDisplay"></span>
-              <input type="text" name="initials" id="initials" />
-              <button id="submitScore" class="submit">Submit Score</button>
+            <br/>
             </div>
           </section>
         </main>

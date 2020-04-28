@@ -1,20 +1,37 @@
- 
- var startButton = document.querySelector("#startButton");
+//  Declare Global Variables
+ var startButton = document.getElementById("startButton");
  var questions = document.getElementById("questions");
  var answerButtons = document.getElementById("answers");
+ var controls = document.getElementById("controls");
 
-console.log ("Connection Check");
+ var timerEl = document.getElementById("timer");
+ var seconds = 120;
+
+
+
+
+// console.log ("Connection Check");
 
  startButton.addEventListener("click", function(){
-     console.log("Inside function")
-     hideButton();
-
+     controls.innerHTML = "";
+     startTimer();
  })
 
- function hideButton() {
-    if (startButton.style.display === "none") {
-      startButton.style.display = "block";
-    } else {
-      startButton.style.display = "none";
-    }
-  }
+//  function hideButton() {
+//     if (this.style.display === "none") {
+//       this.style.display = "block";
+//     } else {
+//       this.style.display = "none";
+//     }
+//   }
+
+function startTimer(){
+    timerEl.textContent = "Timer : " + seconds;
+    var timerInterval = setInterval(function() {
+        seconds--;
+        timerEl.textContent = "Timer : " + seconds;
+        if (seconds === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+}

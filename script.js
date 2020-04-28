@@ -7,6 +7,8 @@ var dingAudio = new Audio('correctNoise.mp3');
 var wrongNoise = new Audio('wrongNoise.mp3')
 var containerEl = document.getElementById("container");
 var scoreAreaEl = document.getElementById("scoreArea");
+var score = 0;
+var scoreH2 = document.getElementById("score");
 
 
 //Question/Answer Buttons
@@ -70,12 +72,12 @@ function startTimer() {
         timerEl.textContent = "Timer : " + seconds;
         if (seconds === 0) {
             clearInterval(timerInterval);
-        }
+        }                             
     }, 1000);
 }
 
 
-function getQuestion() {
+function getQuestion() { 
 
     questions.textContent = questionObjects[questionIndex].question;
     answer1Button.textContent = questionObjects[questionIndex].answer1;
@@ -103,14 +105,18 @@ function nextQuestion() {
 }
 
 function endGame(){                    
+    score = seconds;
+    timerEl.textContent = "";
+    seconds = "";
+    console.log(score);
     console.log("End Game Test");
+    timerEl.setAttribute("class", "hide");
     container.setAttribute("class", "hide");
+   
+    // This is what I am working on now
+    scoreAreaEl.setAttribute("class", "")
+    scoreH2.innerText("Your score is " + score)
     
-    scoreAreaEl.setAttribute("class", "test")
-    
-    
-    
-
 }
 
 function answerCheck(event) {
@@ -121,6 +127,7 @@ function answerCheck(event) {
         console.log("good");
         dingAudio.play();
         questionIndex++;
+        score++;
         nextQuestion();
     }
     else {

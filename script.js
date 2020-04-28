@@ -3,15 +3,19 @@ var startButton = document.getElementById("startButton");
 var answerButtons = document.getElementById("answers");
 var controls = document.getElementById("controls");
 var questionIndex = 0;
-var dingAudio = new Audio('correctNoise.mp3');
-var wrongNoise = new Audio('wrongNoise.mp3')
 var containerEl = document.getElementById("container");
 var scoreAreaEl = document.getElementById("scoreArea");
+var initialFormEl = document.getElementById("initialForm");
+
+//Sound effects
+var dingAudio = new Audio('correctNoise.mp3');
+var wrongNoise = new Audio('wrongNoise.mp3')
+
 var score = 0;
 var scoreH2 = document.getElementById("score");
 
 
-//Question/Answer Buttons
+//Buttons
 var questions = document.createElement("div");
 questions.setAttribute("class", "question");
 var answer1Button = document.createElement("button");
@@ -26,15 +30,19 @@ answer3Button.setAttribute("id", "answer3");
 var answer4Button = document.createElement("button");
 answer4Button.setAttribute("class", "button");
 answer4Button.setAttribute("id", "answer4");
-var correctAnswerStorage = "";
+var seeHighScoreButton = document.getElementById("showScoresButton");
+var enterInitialsButton = document.createElement("button");
+enterInitialsButton.setAttribute("class", "button");
+enterInitialsButton.setAttribute("id", "enterInitialsButton");
+enterInitialsButton.innerText = "Enter";
+document.body.children[1].children[2].children[0].children[0].appendChild(enterInitialsButton);
 
 
+//Timer
 var timerEl = document.getElementById("timer");
 var seconds = 120;
 
-// var questionArray = ["Who is the capital of Texas named after?", "Who was the first President of the Republic of Texas?"];
-
-// Attemting question objects
+// Question Objects
 
 var questionObjects = [
     {
@@ -72,12 +80,12 @@ function startTimer() {
         timerEl.textContent = "Timer : " + seconds;
         if (seconds === 0) {
             clearInterval(timerInterval);
-        }                             
+        }
     }, 1000);
 }
 
 
-function getQuestion() { 
+function getQuestion() {
 
     questions.textContent = questionObjects[questionIndex].question;
     answer1Button.textContent = questionObjects[questionIndex].answer1;
@@ -99,12 +107,12 @@ function nextQuestion() {
         console.log("nextQuestion Function Accessed")
         getQuestion();
     }
-    else{
+    else {
         endGame();
     }
 }
 
-function endGame(){                    
+function endGame() {
     scoreAreaEl.setAttribute("class", "")
     var scoreText = "Your score is " + seconds;
     scoreH2.innerText = scoreText;
@@ -114,16 +122,16 @@ function endGame(){
     console.log("End Game Test");
     timerEl.setAttribute("class", "hide");
     container.setAttribute("class", "hide");
-   
 
-    
+
+
 }
 
 // Checks if the answer clicked is correct.
 function answerCheck(event) {
- console.log("answerCheck() test")
+    console.log("answerCheck() test")
     console.log(event.target.innerHTML);
-        
+
     if (event.target.innerHTML === questionObjects[questionIndex].correctAnswer) {
         // console.log("Correct");
         dingAudio.play();
@@ -140,12 +148,19 @@ function answerCheck(event) {
         nextQuestion();
     }
 }
-function displayScore(){
-    
+function displayScore() {
+
 
 }
+
+
 
 answer1Button.addEventListener("click", answerCheck);
 answer2Button.addEventListener("click", answerCheck);
 answer3Button.addEventListener("click", answerCheck);
 answer4Button.addEventListener("click", answerCheck);
+initialFormEl.addEventListener("keyup",function(){
+    if (e.keycode === 13){
+        console.log("test");
+    }
+});

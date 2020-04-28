@@ -1,6 +1,6 @@
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: thistle;
+  
     
     
 }
@@ -16,7 +16,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:lavenderblush;
+ 
    
 }
 
@@ -26,7 +26,7 @@ h1 {
 }
 
 .button{
-    background-color: white;
+    
     margin: 10px;
     
 

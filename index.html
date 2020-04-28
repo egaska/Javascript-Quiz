@@ -14,24 +14,29 @@
 
     <body>
 
-     
+        <!-- body.Children[0] -->
         <div class = "row justify-content-around">
-            <div class="alert alert-light col-2" role="alert" id="timer">Timer : </div>
-            <button class="button btn btn-light col-2" id="showScoresButton" >See High Scores</button>
+            <div class="alert alert-info col-2" role="alert" id="timer">Timer : </div>
+            <button class="button btn btn-info col-2" id="showScoresButton" >See High Scores</button>
             
         </div>
-        
+        <!-- body.Children[1] -->
         <main class="quizArea row">
+            <!-- body.children[1].children[0] -->
           <header class="header col-12">
             <h1>Javascript Quiz</h1>
             
           </header>
+          <!-- body.children[1].children[1] -->
           <section class= "" id="container" >
             <div id="question"></div>
             <div id="answers" class="buttonArea"></div>
           </section>
+          <!-- body.children[1].children[2] -->
           <section class="scores">
+            <!-- body.children[1].children[2].children[0] -->
             <div id="scoreArea" class="hide">
+                 <!-- body.children[1].children[2].children[0].children[0] -->
                 <form> <div class="form-group">
                     <label>Please enter your initials:</label>
                     <input class="form-control" id="initialForm" placeholder="initials">
@@ -42,7 +47,7 @@
             </div>
           </section>
           <section class="controls" id= "controls">
-            <button class = "" id="startButton">START</button>
+            <button class = "button btn btn-info" id="startButton">Start</button>
             <br/>
             </div>
           </section>

@@ -118,13 +118,9 @@ function endGame() {
     scoreH2.innerText = scoreText;
     timerEl.textContent = "";
     seconds = "";
-    console.log(score);
-    console.log("End Game Test");
+    seeHighScoreButton.setAttribute("class", "hide");
     timerEl.setAttribute("class", "hide");
     container.setAttribute("class", "hide");
-
-
-
 }
 
 // Checks if the answer clicked is correct.

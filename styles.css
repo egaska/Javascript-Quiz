@@ -24,7 +24,9 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-
+#timer{
+    margin: 8px;
+}
 .button{
     
     margin: 10px;

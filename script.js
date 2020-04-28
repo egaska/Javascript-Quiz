@@ -7,8 +7,9 @@ var containerEl = document.getElementById("container");
 var scoreAreaEl = document.getElementById("scoreArea");
 var initialFormEl = document.getElementById("initialForm");
 
+
 //Sound effects
-var dingAudio = new Audio('correctNoise.mp3');
+var dingAudio = new Audio('correctNoise.wav');
 var wrongNoise = new Audio('wrongNoise.mp3')
 
 var score = 0;
@@ -35,6 +36,8 @@ var enterInitialsButton = document.createElement("button");
 enterInitialsButton.setAttribute("class", "button");
 enterInitialsButton.setAttribute("id", "enterInitialsButton");
 enterInitialsButton.innerText = "Enter";
+var input = document.createElement("input");
+input.setAttribute("id", "initialForm");
 document.body.children[1].children[2].children[0].children[0].appendChild(enterInitialsButton);
 
 
@@ -114,14 +117,14 @@ function nextQuestion() {
 
 function endGame() {
     scoreAreaEl.setAttribute("class", "")
-    var scoreText = "Your score is " + seconds;
-    scoreH2.innerText = scoreText;
+    score = seconds;
+    scoreH2.innerText =  "Your score is " + score ;
     timerEl.textContent = "";
-    seconds = "";
     seeHighScoreButton.setAttribute("class", "hide");
     timerEl.setAttribute("class", "hide");
     container.setAttribute("class", "hide");
 }
+
 
 // Checks if the answer clicked is correct.
 function answerCheck(event) {
@@ -132,7 +135,6 @@ function answerCheck(event) {
         // console.log("Correct");
         dingAudio.play();
         questionIndex++;
-        score++;
         nextQuestion();
     }
     else {
@@ -144,19 +146,21 @@ function answerCheck(event) {
         nextQuestion();
     }
 }
-function displayScore() {
-
-
-}
-
 
 
 answer1Button.addEventListener("click", answerCheck);
 answer2Button.addEventListener("click", answerCheck);
 answer3Button.addEventListener("click", answerCheck);
 answer4Button.addEventListener("click", answerCheck);
-initialFormEl.addEventListener("keyup",function(){
-    if (e.keycode === 13){
-        console.log("test");
-    }
-});
+// Event listener to submit Initials
+enterInitialsButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    // console.log(score);
+    var newInput = initialFormEl;
+    var userInput = newInput.value.trim();
+    
+    var newScore = userInput + " : " + score + " seconds";
+    console.log(newScore);
+})
+
+

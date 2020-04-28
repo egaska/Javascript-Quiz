@@ -3,10 +3,23 @@ var startButton = document.getElementById("startButton");
 var answerButtons = document.getElementById("answers");
 var controls = document.getElementById("controls");
 
+//Question/Answer Buttons
+var questions = document.createElement("div");
+questions.setAttribute("class", "question");
+var Answer1 = document.createElement("button");
+Answer1.setAttribute("class", "button");
+var Answer2 = document.createElement("button");
+Answer2.setAttribute("class", "button");
+var Answer3 = document.createElement("button");
+Answer3.setAttribute("class", "button");
+var Answer4 = document.createElement("button");
+Answer4.setAttribute("class", "button");
+
+
 var timerEl = document.getElementById("timer");
 var seconds = 120;
 
-var questionArray = ["Who is the capital of Texas named after?", "Who was the first President of the Republic of Texas?"];
+// var questionArray = ["Who is the capital of Texas named after?", "Who was the first President of the Republic of Texas?"];
 
 // Attemting question objects
 
@@ -17,7 +30,7 @@ var questionObjects = [
         answer2: "Moses Austin",
         answer3: "Stephen Austin",
         answer4: "Richard Austin",
-        correctAnswer: "3"
+        correctAnswer: "Stephen Austin"
     },
     {
         question: "Who was the last president of the Republic of Texas?",
@@ -25,7 +38,7 @@ var questionObjects = [
         answer2: "Anson Jones",
         answer3: "Stephen F. Austin",
         answer4: "Mirabeau B. Lamar",
-        correctAnswer: "2"
+        correctAnswer: "answer2"
     },
 ]
 
@@ -47,35 +60,26 @@ function startTimer() {
     }, 1000);
 }
 
-    
+
 
 
 function getQuestion() {
 
-        //Creating and assigning Questions to div for display
-        var questions = document.createElement("div");
-        questions.setAttribute("class", "question");
-        questions.textContent = questionArray[1];
+    questions.textContent = questionObjects[0].question;
+    Answer1.textContent = questionObjects[0].answer1;
+    Answer2.textContent = questionObjects[0].answer2;
+    Answer3.textContent = questionObjects[0].answer3;
+    Answer4.textContent = questionObjects[0].answer4;
 
-        //Creating and assigning Questions to div for display
-        var Answer1 = document.createElement("button");
-        Answer1.setAttribute("class", "button");
-        var Answer2 = document.createElement("button");
-        Answer2.setAttribute("class", "button");
-        var Answer3 = document.createElement("button");
-        Answer3.setAttribute("class", "button");
-        var Answer4 = document.createElement("button");
-        Answer4.setAttribute("class", "button");
-        Answer1.textContent = "hi";
-        Answer2.textContent = "bye";
-        Answer3.textContent = "Yo";
-        Answer4.textContent = "idk";
+    //Appending HTML to dislay question
+    document.body.children[1].children[1].children[0].appendChild(questions);
+    document.body.children[1].children[1].children[1].appendChild(Answer1);
+    document.body.children[1].children[1].children[1].appendChild(Answer2);
+    document.body.children[1].children[1].children[1].appendChild(Answer3);
+    document.body.children[1].children[1].children[1].appendChild(Answer4);
 
-        //Appending HTML to dislay question
-        document.body.children[1].children[1].children[0].appendChild(questions);
-        document.body.children[1].children[1].children[1].appendChild(Answer1);
-        document.body.children[1].children[1].children[1].appendChild(Answer2);
-        document.body.children[1].children[1].children[1].appendChild(Answer3);
-        document.body.children[1].children[1].children[1].appendChild(Answer4);
-    
+}
+
+function answerCheck( answer ){
+
 }

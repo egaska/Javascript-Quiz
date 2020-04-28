@@ -11,15 +11,22 @@ h1 {
     align-items: center;
 }
 
-section {
+.quizArea {
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color:lavenderblush;
    
 }
 
 #quiz{
     justify-content: center;
     align-items: center;
+}
+
+.button{
+    background-color: white;
+    margin: 10px;
+
 }

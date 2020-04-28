@@ -8,8 +8,27 @@ var seconds = 120;
 
 var questionArray = ["Who is the capital of Texas named after?", "Who was the first President of the Republic of Texas?"];
 
+// Attemting question objects
 
-// console.log ("Connection Check");
+var questionObjects = [
+    {
+        question: "Who is the capital of Texas named for?",
+        answer1: "Sam Houston",
+        answer2: "Moses Austin",
+        answer3: "Stephen Austin",
+        answer4: "Richard Austin",
+        correctAnswer: "3"
+    },
+    {
+        question: "Who was the last president of the Republic of Texas?",
+        answer1: "Sam Houston",
+        answer2: "Anson Jones",
+        answer3: "Stephen F. Austin",
+        answer4: "Mirabeau B. Lamar",
+        correctAnswer: "2"
+    },
+]
+
 
 startButton.addEventListener("click", function () {
     controls.innerHTML = "";
@@ -28,6 +47,7 @@ function startTimer() {
     }, 1000);
 }
 
+    
 
 
 function getQuestion() {

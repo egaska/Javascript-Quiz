@@ -1,29 +1,20 @@
+ 
+ var startButton = document.querySelector("#startButton");
+ var questions = document.getElementById("questions");
+ var answerButtons = document.getElementById("answers");
 
-// Initialize  Global Variables
+console.log ("Connection Check");
 
-var currentQuestion; 
-var correctAnswer; 
-var incorrectAnswer; 
+ startButton.addEventListener("click", function(){
+     console.log("Inside function")
+     hideButton();
 
+ })
 
-// Questions Array Variable 
-
-var questionsArray =
-    [
-        {
-            question: "Test test test",
-            choices: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-            answer: 2
-        },
-        {
-            question: "Test test test 2",
-            choices: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-            answer: 4
-        },
-        {
-            question: "Test test test 3",
-            choices: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-            answer: 1
-        },
-    ];
-
+ function hideButton() {
+    if (startButton.style.display === "none") {
+      startButton.style.display = "block";
+    } else {
+      startButton.style.display = "none";
+    }
+  }

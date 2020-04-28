@@ -4,37 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-   <!-- Bootstrap Link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   
-        <!-- CSS StyleSheet Link -->
-        <link href = "styles.css" rel= "stylesheet">
-    
+        <link rel="stylesheet" href="styles.css">
     <title>Javascript Quiz Game</title>
-    
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
 
-    <h1>JavaScript Quiz</h1>
-    <div class="container">
-        <div id="start"><button class="btn btn-info startButton">START</button>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla hic amet dolores placeat eligendi. At, fugiat voluptatem hic veniam nesciunt iste similique eum id culpa error quis praesentium earum laborum.<br> 
-        <br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus saepe perspiciatis laboriosam in vitae neque, reprehenderit illo quas fugit quaerat aliquid distinctio nisi ipsa, culpa porro blanditiis at officiis! Eum.</p></div>
-        <div id="quiz" style="display: none">
-            <h2 id="quizQuestion"></h2>
-            <div id="answers">
-                <button id="answer1" class="btn btn-info"></button>
-                <button id="answer2" class="btn btn-info"></button>
-                <button id="answer3" class="btn btn-info"></button>
-                <button id="answer4" class="btn btn-info"></button>
+    <body>
+        <main class="quizArea">
+          <header class="header">
+            <h1>Javascript Quiz</h1>
+            <span id="timer"></span>
+          </header>
+          <section id="container" class="hide">
+            <div id="question"></div>
+            <div id="answers" class="buttonArea"></div>
+          </section>
+          <section class="scores">
+            <div id="scoreArea" class="hide"></div>
+          </section>
+          <section class="controls">
+            <button class = "" id="startButton">START</button>
+            <button class="button" id="showScoresButton">See High Scores</button>
+            <br />
+            <div id="scoreArea" class="hide">
+              <span id="scoreDisplay"></span>
+              <input type="text" name="initials" id="initials" />
+              <button id="submitScore" class="submit">Submit Score</button>
             </div>
-        </div>
-    </div>
+          </section>
+        </main>
     <script src="./script.js"></script>
 </body>
 

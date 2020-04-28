@@ -4,16 +4,21 @@ body{
     
 }
 
-h1{
+h1 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container {
+section {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
    
+}
+
+#quiz{
+    justify-content: center;
+    align-items: center;
 }

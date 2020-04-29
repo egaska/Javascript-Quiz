@@ -9,6 +9,8 @@ var initialFormEl = document.getElementById("initialForm");
 var scoreHeaderEl = document.getElementById("scoreHeader")
 var scoreListEL = document.getElementById("scoreList");
 var HighScoreSectionEl = document.getElementById("highScoreSection");
+var rulesEL = document.getElementById("rules");
+var rightOrWrongEl = document.getElementById("rightOrWrong");
 
 
 
@@ -125,6 +127,7 @@ var questionObjects = [
 function startGame () {
     controls.innerHTML = "";
     HighScoreSectionEl.setAttribute("class", "hide")
+    rulesEL.setAttribute("class", "hide")
     startTimer();
     getQuestion();
 }
@@ -177,6 +180,7 @@ function answerCheck(event) {
     if (event.target.innerHTML === questionObjects[questionIndex].correctAnswer) {
         // console.log("Correct");
         dingAudio.play();
+        rightOrWrongEl.innerText = "Correct!"
         questionIndex++;
         nextQuestion();
     }
@@ -185,6 +189,7 @@ function answerCheck(event) {
         console.log(questionObjects[questionIndex].correctAnswer);
         seconds = seconds - 10;
         wrongNoise.play();
+        rightOrWrongEl.innerText = "Wrong!"
         questionIndex++;
         nextQuestion();
     }

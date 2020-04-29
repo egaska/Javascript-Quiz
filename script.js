@@ -122,12 +122,12 @@ var questionObjects = [
 
 // Functions
 
-startButton.addEventListener("click", function () {
+function startGame () {
     controls.innerHTML = "";
     HighScoreSectionEl.setAttribute("class", "hide")
     startTimer();
     getQuestion();
-})
+}
 
 function startTimer() {
     seconds = 120;
@@ -247,6 +247,7 @@ function tryagain(){
     location.reload();
 }
 
+startButton.addEventListener("click", startGame)
 answer1Button.addEventListener("click", answerCheck);
 answer2Button.addEventListener("click", answerCheck);
 answer3Button.addEventListener("click", answerCheck);

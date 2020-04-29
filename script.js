@@ -206,7 +206,11 @@ function showHighScores(){
 }
 
 function clearStorage(){
+    
+}
 
+function tryagain(){
+    location.reload();
 }
 
 answer1Button.addEventListener("click", answerCheck);
@@ -216,3 +220,4 @@ answer4Button.addEventListener("click", answerCheck);
 // Event listener to submit Initials
 enterInitialsButton.addEventListener("click", enterYourScore);
 seeHighScoreButton.addEventListener("click", showHighScores);
+restartButton.addEventListener("click", tryagain);

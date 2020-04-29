@@ -6,6 +6,9 @@ var questionIndex = 0;
 var containerEl = document.getElementById("container");
 var scoreAreaEl = document.getElementById("scoreArea");
 var initialFormEl = document.getElementById("initialForm");
+var scoreHeaderEl = document.getElementById("scoreHeader")
+var scoreListEL = document.getElementById("scoreList");
+
 
 
 //Sound effects
@@ -123,30 +126,6 @@ function nextQuestion() {
     }
 }
 
-function endGame() {
-    scoreAreaEl.setAttribute("class", "")
-    score = seconds;
-    scoreH2.innerText =  "Your score is " + score ;
-    timerEl.textContent = "";
-    seeHighScoreButton.setAttribute("class", "hide");
-    timerEl.setAttribute("class", "hide");
-    container.setAttribute("class", "hide");
-}
-
-function enterYourScore(event){
-        event.preventDefault();
-        // console.log(score);
-        var newInput = initialFormEl;
-        var userInput = newInput.value.trim();
-        
-        var newScore = userInput + " : " + score + " seconds";
-        console.log(newScore);
-        highScoreStorage.push(newScore);
-        console.log(highScoreStorage);
-        localStorage.setItem("highScoreStorage", JSON.stringify(highScoreStorage));
-        
-}
-
 // Checks if the answer clicked is correct.
 function answerCheck(event) {
     console.log("answerCheck() test")
@@ -168,12 +147,65 @@ function answerCheck(event) {
     }
 }
 
+//Once all questions have been read function endGame 
+//collects the player's score and hides the quiz section
+function endGame() {
+    scoreAreaEl.setAttribute("class", "")
+    score = seconds;
+    scoreH2.innerText =  "Your score is " + score ;
+    timerEl.textContent = "";
+    seeHighScoreButton.setAttribute("class", "hide");
+    timerEl.setAttribute("class", "hide");
+    container.setAttribute("class", "hide");
+}
+
+//Functions allows you to enter your initials and store initials/score in local storage.
+function enterYourScore(event){
+        event.preventDefault();
+        // console.log(score);
+        var newInput = initialFormEl;
+        var userInput = newInput.value.trim();
+        
+        var newScore = userInput + " : " + score + " seconds";
+        console.log(newScore);
+        highScoreStorage.push(newScore);
+        console.log(highScoreStorage);
+        localStorage.setItem("highScoreStorage", JSON.stringify(highScoreStorage));  
+        showHighScores()
+}
+function showHighScores(){
+    
+    //Clears page
+    scoreAreaEl.setAttribute("class", "")
+    controls.innerHTML = "";
+    timerEl.textContent = "";
+    seeHighScoreButton.setAttribute("class", "hide");
+    timerEl.setAttribute("class", "hide");
+    container.setAttribute("class", "hide");
+    scoreAreaEl .setAttribute("class", "hide")
+
+    //Display High Score List
+    for (let i = 0; i < highScoreStorage.length; i++) {
+        var highScoreLi = document.createElement("li");
+        scoreListEL.setAttribute("class", "high-scores");
+        scoreHeaderEl.textContent = "High Scores : ";
+        scoreListEL.appendChild(highScoreLi);
+        highScoreLi.textContent = highScoreStorage[i];
+    }
+    for (let i = 0; i < homeHs.length; i++) {
+        var newButtons = document.createElement("button");
+        newButtons.setAttribute("class", "aButtons");
+        newButtons.setAttribute("style", "display: inline; margin: 25px 25px 50px 25px" )
+        hsButtons.appendChild(newButtons);
+        newButtons.textContent = homeHs[i];
+
+    }
+}
 
 answer1Button.addEventListener("click", answerCheck);
 answer2Button.addEventListener("click", answerCheck);
 answer3Button.addEventListener("click", answerCheck);
 answer4Button.addEventListener("click", answerCheck);
 // Event listener to submit Initials
-enterInitialsButton.addEventListener("click", enterYourScore)
-
-
+enterInitialsButton.addEventListener("click", enterYourScore);
+seeHighScoreButton.addEventListener("click", showHighScores);

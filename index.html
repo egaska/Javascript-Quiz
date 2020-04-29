@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Javascript Quiz Game</title>
 </head>
 
@@ -15,49 +15,57 @@
     <body>
 
         <!-- body.Children[0] -->
-        <div class = "row justify-content-around">
+        <div class="row justify-content-around">
             <div class="alert alert-info col-2" role="alert" id="timer">Timer : </div>
-            <button class="button btn btn-info col-2" id="showScoresButton" >See High Scores</button>
-            
+            <button class="button btn btn-info col-2" id="showScoresButton">See High Scores</button>
+
         </div>
         <!-- body.Children[1] -->
         <main class="quizArea row">
             <!-- body.children[1].children[0] -->
-          <header class="header col-12">
-            <h1>Javascript Quiz</h1>
-            
-          </header>
-          <!-- body.children[1].children[1] -->
-          <section class= "" id="container" >
-            <div id="question"></div>
-            <div id="answers" class="buttonArea"></div>
-          </section>
-          <!-- body.children[1].children[2] -->
-          <section class="scores">
-            <!-- body.children[1].children[2].children[0] -->
-            <div id="scoreArea" class="hide">
-                 <!-- body.children[1].children[2].children[0].children[0] -->
-                <form> <div class="form-group">
-                    <label>Please enter your initials:</label>
-                    <input class="form-control" id="initialForm" placeholder="initials">
-                  </div>
-                </form>
-                
-                <h2 id = "score"></h2>
-            </div>
-          </section>
-          <section class="controls" id= "controls">
-            <button class = "button btn btn-info" id="startButton">Start</button>
-            <br/>
-            </div>
-          </section>
+            <header class="header col-12">
+                <h1>Javascript Quiz</h1>
+
+            </header>
+            <!-- body.children[1].children[1] -->
+            <section class="" id="container">
+                <div id="question"></div>
+                <div id="answers" class="buttonArea"></div>
+            </section>
+            <!-- body.children[1].children[2] -->
+            <section class="scores">
+                <!-- body.children[1].children[2].children[0] -->
+                <div id="scoreArea" class="hide">
+                    <!-- body.children[1].children[2].children[0].children[0] -->
+                    <form>
+                        <div class="form-group" id="form">
+                            <label>Please enter your initials:</label>
+                            <input class="form-control" id="initialForm" placeholder="initials">
+                        </div>
+                    </form>
+
+                    <h2 id="score"></h2>
+                </div>
+            </section>
+            <!-- body.children[1].children[3] -->
+            <section class="controls" id="controls">
+                <button class="button btn btn-info" id="startButton">Start</button>
+                <br />
+                </div>
+            </section>
+            <!-- body.children[1].children[4] -->
+            <section id="highScoreSection">
+                <h2 id = "scoreHeader"></h2>
+                <ul id="scoreList"></ul>
+                <hr class="my-3">
+            </section>
         </main>
-        
+
         <audio id="dingAudio"></audio>
-            <source src="assets/Ding-sound-effect.mp3" type="audio/mpeg">
-          </audio>
-          
-    <script src="./script.js"></script>
-</body>
+        <source src="assets/Ding-sound-effect.mp3" type="audio/mpeg">
+        </audio>
+
+        <script src="./script.js"></script>
+    </body>
 
 </html>

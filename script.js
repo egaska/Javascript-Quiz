@@ -8,6 +8,7 @@ var scoreAreaEl = document.getElementById("scoreArea");
 var initialFormEl = document.getElementById("initialForm");
 var scoreHeaderEl = document.getElementById("scoreHeader")
 var scoreListEL = document.getElementById("scoreList");
+var HighScoreSectionEl = document.getElementById("highScoreSection");
 
 
 
@@ -42,6 +43,14 @@ enterInitialsButton.innerText = "Enter";
 var input = document.createElement("input");
 input.setAttribute("id", "initialForm");
 document.body.children[1].children[2].children[0].children[0].appendChild(enterInitialsButton);
+var clearHighScoreButton = document.createElement("button");
+input.setAttribute("id", "clearHighScore");
+clearHighScoreButton.innerText = "Clear High Scores";
+document.body.children[1].children[4].children[3].appendChild(clearHighScoreButton);
+var restartButton = document.createElement("button");
+input.setAttribute("id", "restartButton");
+restartButton.innerText = "Try Again";
+document.body.children[1].children[4].children[4].appendChild(restartButton);
 
 
 //Timer
@@ -82,6 +91,7 @@ var questionObjects = [
 
 startButton.addEventListener("click", function () {
     controls.innerHTML = "";
+    HighScoreSectionEl.setAttribute("class", "hide")
     startTimer();
     getQuestion();
 })
@@ -185,6 +195,7 @@ function showHighScores(){
     scoreAreaEl .setAttribute("class", "hide")
 
     //Display High Score List
+    HighScoreSectionEl.setAttribute("class", "")
     for (let i = 0; i < highScoreStorage.length; i++) {
         var highScoreLi = document.createElement("li");
         scoreListEL.setAttribute("class", "high-scores");
@@ -192,14 +203,10 @@ function showHighScores(){
         scoreListEL.appendChild(highScoreLi);
         highScoreLi.textContent = highScoreStorage[i];
     }
-    for (let i = 0; i < homeHs.length; i++) {
-        var newButtons = document.createElement("button");
-        newButtons.setAttribute("class", "aButtons");
-        newButtons.setAttribute("style", "display: inline; margin: 25px 25px 50px 25px" )
-        hsButtons.appendChild(newButtons);
-        newButtons.textContent = homeHs[i];
+}
 
-    }
+function clearStorage(){
+
 }
 
 answer1Button.addEventListener("click", answerCheck);

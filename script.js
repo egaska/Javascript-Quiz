@@ -77,6 +77,39 @@ var questionObjects = [
         correctAnswer: "Stephen Austin"
     },
     {
+        question: "What is the state tree pf Texas?",
+        answer1: "Peach",
+        answer2: "Oak",
+        answer3: "Mesquite",
+        answer4: "Pecan",
+        correctAnswer: "Pecan"
+    },
+    {
+        question: "In what major city is the Alamo?",
+        answer1: "San Antonio",
+        answer2: "Houston",
+        answer3: "Austin",
+        answer4: "Dallas",
+        correctAnswer: "San Antonio"
+    },
+    {
+        question: "What was the final battle of the Texas Revolution?",
+        answer1: "Battle of the Alamo",
+        answer2: "Battle of San Jacinto",
+        answer3: "Battle of Goliad",
+        answer4: "Battle of Gonzales",
+        correctAnswer: "Battle of San Jacinto"
+    },
+    {
+        question: "Which military leader surrendered at Coleto Creek on March 20, 1836??",
+        answer1: "Sam Houston",
+        answer2: "Mirabeau B. Lamar",
+        answer3: "Stephen Austin",
+        answer4: "James Fanin",
+        correctAnswer: "James Fanin"
+    },
+    
+    {
         question: "Who was the last president of the Republic of Texas?",
         answer1: "Sam Houston",
         answer2: "Anson Jones",
@@ -206,7 +239,8 @@ function showHighScores(){
 }
 
 function clearStorage(){
-    
+        localStorage.clear();
+        tryagain();
 }
 
 function tryagain(){
@@ -221,3 +255,4 @@ answer4Button.addEventListener("click", answerCheck);
 enterInitialsButton.addEventListener("click", enterYourScore);
 seeHighScoreButton.addEventListener("click", showHighScores);
 restartButton.addEventListener("click", tryagain);
+clearHighScoreButton.addEventListener("click", clearStorage);

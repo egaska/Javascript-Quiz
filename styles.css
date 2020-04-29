@@ -1,11 +1,17 @@
 body{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
   
     
     
 }
 
 h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+}
+p{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,10 +32,13 @@ h1 {
 }
 #timer{
     margin: 8px;
+    background-color: brown;
+    color: white;
 }
 .button{
-    
+    background-color: brown;
     margin: 10px;
+    color: white;
     
 
 }
